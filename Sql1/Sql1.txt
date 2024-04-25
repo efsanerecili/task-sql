@@ -1,0 +1,34 @@
+create database Movies
+use Movies
+create table Movie(
+Id int Primary key Identity,
+[name] nvarchar(60)Not Null,
+Genre nvarchar(60) Not Null,
+DirectorId int foreign key references Director(Id)
+)
+
+create table Director(
+Id int Primary key Identity,
+[name] nvarchar (60) Not Null,
+year int,
+ActorId int foreign key references Actor(Id)
+)
+
+create table actor(
+Id int Primary key Identity,
+[name] nvarchar(60)Not Null,
+movies nvarchar (60) Not Null,
+GenreId int foreign key references Genre(Id)
+)
+create table Genre(
+Id int Primary key Identity,
+[name] nvarchar(60)Not Null,
+ReviewId int foreign key references Review(Id)
+)
+
+
+create table Review(
+Id int Primary key Identity,
+[name] nvarchar(60)Not Null,
+Rating int foreign key references Rating(id)
+)
